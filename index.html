@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Camera</title>
+</head>
+
+<body>
+  <h2>My Camera</h2>
+
+  <video id="camera" autoplay playsinline></video>
+
+  <script>
+    navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: false
+    })
+    .then(function(stream) {
+      document.getElementById("camera").srcObject = stream;
+    })
+    .catch(function() {
+      alert("Camera permission is required.");
+    });
+  </script>
+</body>
+</html>
